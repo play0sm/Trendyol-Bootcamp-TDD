@@ -79,4 +79,16 @@ public class WordCounterTest{
         assertThat(result).isEqualTo(4);
     }
 
+    @Test
+    public void countUniqueWord_WhenSentenceHasComma_ItShouldReturnFour() {
+        //Arrange
+        WordCounter sut = new WordCounter();
+
+        //Act
+        int result = sut.countUniqueWord("Apple, orange and melon.");
+
+        //Assert
+        assertThat(result).isEqualTo(4);
+    }
+
 }
