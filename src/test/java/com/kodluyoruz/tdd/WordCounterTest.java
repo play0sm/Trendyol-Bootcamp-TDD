@@ -91,6 +91,12 @@ public class WordCounterTest{
         assertThat(result).isEqualTo(4);
     }
 
+    /*
+        The character/characters that come after apostrophe represent a word.
+        Example: is, are, am, have, will, not etc.
+        These characters count as a word.
+        NOTE: This test not cover "s", which is the ownership suffix.
+     */
     @Test
     public void countUniqueWord_WhenSentenceHasApostrophe_ItShouldReturnFour() {
         //Arrange
