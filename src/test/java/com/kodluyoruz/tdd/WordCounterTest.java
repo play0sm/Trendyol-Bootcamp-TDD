@@ -91,4 +91,16 @@ public class WordCounterTest{
         assertThat(result).isEqualTo(4);
     }
 
+    @Test
+    public void countUniqueWord_WhenSentenceHasApostrophe_ItShouldReturnFour() {
+        //Arrange
+        WordCounter sut = new WordCounter();
+
+        //Act
+        int result = sut.countUniqueWord("This's a test.");
+
+        //Assert
+        assertThat(result).isEqualTo(4);
+    }
+
 }
