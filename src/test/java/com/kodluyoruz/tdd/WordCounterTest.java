@@ -43,4 +43,16 @@ public class WordCounterTest{
         assertThat(result).isEqualTo(2);
     }
 
+    @Test
+    public void countUniqueWord_WhenStringHasUpperCaseWord_ItShouldReturnThree() {
+        //Arrange
+        WordCounter sut = new WordCounter();
+
+        //Act
+        int result = sut.countUniqueWord("As much as");
+
+        //Assert
+        assertThat(result).isEqualTo(3);
+    }
+
 }
