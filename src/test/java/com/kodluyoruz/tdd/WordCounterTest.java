@@ -20,7 +20,7 @@ public class WordCounterTest{
     }
 
     @Test
-    public void countUniqueWord_WhenStringIsNotSameWord_ItShouldReturnWordCount() {
+    public void countUniqueWord_WhenStringIsNotSameWord_ItShouldFour() {
         //Arrange
         WordCounter sut = new WordCounter();
 
@@ -29,6 +29,18 @@ public class WordCounterTest{
 
         //Assert
         assertThat(result).isEqualTo(4);
+    }
+
+    @Test
+    public void countUniqueWord_WhenStringHasDuplicateWord_ItShouldReturnTwo() {
+        //Arrange
+        WordCounter sut = new WordCounter();
+
+        //Act
+        int result = sut.countUniqueWord("as much as");
+
+        //Assert
+        assertThat(result).isEqualTo(2);
     }
 
 }
