@@ -8,7 +8,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.catchThrowable;
 
 public class WordCounterTest{
     @Test
-    public void countUniqueWord_WhenStringIsNull_ShouldThrowIllegalArgumentException() {
+    public void countUniqueWord_WhenSentenceIsNull_ShouldThrowIllegalArgumentException() {
         //Arrange
         WordCounter sut = new WordCounter();
 
@@ -20,7 +20,19 @@ public class WordCounterTest{
     }
 
     @Test
-    public void countUniqueWord_WhenStringIsNotSameWord_ItShouldFour() {
+    public void countUniqueWord_WhenSentenceIsEmpty_ShouldReturnZero() {
+        //Arrange
+        WordCounter sut = new WordCounter();
+
+        //Act
+        int result = sut.countUniqueWord("");
+
+        //Assert
+        assertThat(result).isEqualTo(0);
+    }
+
+    @Test
+    public void countUniqueWord_WhenSentenceIsNotSameWord_ItShouldFour() {
         //Arrange
         WordCounter sut = new WordCounter();
 
@@ -32,7 +44,7 @@ public class WordCounterTest{
     }
 
     @Test
-    public void countUniqueWord_WhenStringHasDuplicateWord_ItShouldReturnTwo() {
+    public void countUniqueWord_WhenSentenceHasDuplicateWord_ItShouldReturnTwo() {
         //Arrange
         WordCounter sut = new WordCounter();
 
@@ -44,7 +56,7 @@ public class WordCounterTest{
     }
 
     @Test
-    public void countUniqueWord_WhenStringHasUpperCaseWord_ItShouldReturnThree() {
+    public void countUniqueWord_WhenSentenceHasUpperCaseWord_ItShouldReturnThree() {
         //Arrange
         WordCounter sut = new WordCounter();
 
@@ -53,6 +65,18 @@ public class WordCounterTest{
 
         //Assert
         assertThat(result).isEqualTo(3);
+    }
+
+    @Test
+    public void countUniqueWord_WhenSentenceHasDot_ItShouldReturnFour() {
+        //Arrange
+        WordCounter sut = new WordCounter();
+
+        //Act
+        int result = sut.countUniqueWord("This is a test.");
+
+        //Assert
+        assertThat(result).isEqualTo(4);
     }
 
 }
